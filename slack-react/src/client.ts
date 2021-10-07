@@ -1,6 +1,6 @@
 import Axios, { AxiosInstance, AxiosResponse, CancelToken } from 'axios';
 
-const baseURL = 'https://us-central1-demoapp-1779c.cloudfunctions.net/v1';
+const baseURL = 'http://localhost:5000/slack-clone-2a71d/us-central1/v1';
 
 
 const instance: AxiosInstance = Axios.create({

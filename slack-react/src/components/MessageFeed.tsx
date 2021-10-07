@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Axios, { CancelTokenSource } from 'axios';
 import { fetchMessages, Message } from '../client';
-import { Dimmer, Loader, Segment, Image, Comment, Header } from 'semantic-ui-react';
+import { Dimmer, Loader, Segment, Comment, Header } from 'semantic-ui-react';
 
 interface MessageFeedProps {
     channelName: string;
@@ -41,10 +41,8 @@ export class MessageFeed extends React.Component<MessageFeedProps, MessageFeedSt
                 });
             }).catch(err => {
                 if (Axios.isCancel(err)) {
-                    // Unmount されていた場合の処理
                     console.log(err);
                 } else {
-                    // 通常のエラーハンドリング
                     console.log(err);
                     this.setState({
                         isLoading: false

@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { Switch } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { ChannelList } from './components';
+import { Channel } from './containers';
+import { Container } from 'semantic-ui-react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div id='wrapper'>
+        <ChannelList />
+        <main style={{ marginLeft: '16rem' }}>
+            <Container>
+                <Switch>
+                    <Route
+                        exact={true} path='/channels/:channelName' component={Channel} />
+                    <Route
+                        exact={true} path='/'
+                        render={() => <h1>Sample Application</h1>} />
+                </Switch>
+            </Container>
+        </main>
     </div>
+</BrowserRouter >
   );
 }
 
