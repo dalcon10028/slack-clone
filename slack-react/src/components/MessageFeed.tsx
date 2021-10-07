@@ -31,7 +31,6 @@ export class MessageFeed extends React.Component<MessageFeedProps, MessageFeedSt
 
         this.setState({ isLoading: true });
 
-        // cancelToken を作成
         this.cancelTokenSource = Axios.CancelToken.source();
         fetchMessages(channelName, {}, this.cancelTokenSource.token)
             .then(response => {

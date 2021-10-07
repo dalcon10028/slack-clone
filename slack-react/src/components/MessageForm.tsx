@@ -66,7 +66,6 @@ export class MessageForm extends React.Component<MessageFormProps, MessageFormSt
                 <Form onSubmit={this.handleFormSubmit}>
                     <Form.Field>
                         <TextArea
-                            autoHeight
                             placeholder='Write your message'
                             value={this.state.body}
                             onChange={this.handleTextAreaChange} />
